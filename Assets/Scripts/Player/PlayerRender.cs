@@ -7,7 +7,8 @@ public class PlayerRender : MonoBehaviour
     public static readonly string[] staticDirections = { "Idle_N", "Idle_NW", "Idle_W", "Idle_SW", "Idle_S", "Idle_SE", "Idle_E", "Idle_NE" };
     public static readonly string[] runDirections = { "Move_N", "Move_NW", "Move_W", "Move_SW", "Move_S", "Move_SE", "Move_E", "Move_NE" };
     public static readonly string[] dashDirections = { "Dash_N", "Dash_NW", "Dash_W", "Dash_SW", "Dash_S", "Dash_SE", "Dash_E", "Dash_NE" };
-
+    public static readonly string[] attackDirections = { "Att_N", "Att_N", "Att_N", "Att_N", "Att_N", "Att_N", "Att_N", "Att_N" };
+        //"Att_NW", "Att_W", "Att_SW", "Att_S", "Att_SE", "Att_E", "Att_NE" };
 
     Animator animator;
     int lastDirection;
@@ -40,10 +41,15 @@ public class PlayerRender : MonoBehaviour
             directionArray = runDirections;
             lastDirection = DirectionToIndex(direction, 8);
         }
-        if(SkillManager.Instance.isDashing)
+        if (SkillManager.Instance.isAttacking)
+        {
+            directionArray = attackDirections;
+        }
+        if (SkillManager.Instance.isDashing)
         {
             directionArray = dashDirections;
         }
+        
 
         //tell the animator to play the requested state
         animator.Play(directionArray[lastDirection]);

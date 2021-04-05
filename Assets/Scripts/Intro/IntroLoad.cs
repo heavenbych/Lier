@@ -24,10 +24,13 @@ public class IntroLoad : MonoBehaviour
 
     public void gameStart()
     {
-        IsStart = true;
-        UIManager.Instance.DisableAllUI();
-        StartCoroutine(StartLoad("Char"));
-        GameManager.Instance.GameStatus = GameStatus.Character;
+        if (!IsStart)
+        {
+            IsStart = true;
+            UIManager.Instance.DisableAllUI();
+            StartCoroutine(StartLoad("Char"));
+            GameManager.Instance.GameStatus = GameStatus.Character;
+        }
     }
     private void Update()
     {

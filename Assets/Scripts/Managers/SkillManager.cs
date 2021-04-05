@@ -10,6 +10,9 @@ public class SkillManager : MonoBehaviour
     public bool isDashing;
     private static float DASHCOOLDOWN = 2f;
 
+    private bool isAttackOn;
+    public bool isAttacking;
+    private static float ATTACKCOOLDOWN = 0.5f;
     public static SkillManager Instance
     {
         get
@@ -33,9 +36,26 @@ public class SkillManager : MonoBehaviour
 
         isDashOn = true;
         isDashing = false;
+        isAttackOn = true;
+        isAttacking = false;
     }
 
-
+    public void Attack()
+    {
+        if(isAttackOn)
+        {
+            isAttackOn = false;
+            isAttacking = true;
+            Invoke("AttackCooldown", ATTACKCOOLDOWN);
+        } else
+        {
+            print("AttackCD");
+        }
+    }
+    private void AttackCooldown()
+    {
+        isAttackOn = true;
+    }
     public void Dash()
     {
         if(isDashOn)

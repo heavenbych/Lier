@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
     [SerializeField] private Vector2 lastVector;
     float Dashtime = 0.5f;
+    float AttTime = 1f;
+
     VariableJoystick variableJoystick;           //조이스틱 선언
     PlayerRender playerRenderer;
 
@@ -28,7 +30,40 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
 
 
-        if (!SkillManager.Instance.isDashing)
+        
+        if (SkillManager.Instance.isDashing)
+        {
+            Dashtime -= Time.fixedDeltaTime;
+            if (Dashtime >= 0f)
+            {
+                //rbody.AddForce(lastVector * 15f);
+                playerRenderer.SetDirection(lastVector);
+                rbody.MovePosition(currentPos + lastVector*0.1f);
+            }
+            else if (Dashtime <= 0f)
+            {
+                rbody.velocity = Vector2.zero;
+                Dashtime = 0.5f;
+                SkillManager.Instance.isDashing = false;
+            }
+            
+        }
+        else if (SkillManager.Instance.isAttacking)
+        {
+            AttTime -= Time.fixedDeltaTime;
+            if(AttTime >= 0f)
+            {
+                playerRenderer.SetDirection(lastVector);
+            }
+            else if(AttTime <= 0f)
+            {
+                AttTime = 0.5f;
+                SkillManager.Instance.isAttacking = false;
+
+            }
+            
+        }
+        else if(!SkillManager.Instance.isDashing)
         {
             //이하 아래 두 줄은 바로 이동하는게 아닌 AddForce를 사용해 이동
             //Vector2 direction = Vector2.up * variableJoystick.Vertical + Vector2.right * variableJoystick.Horizontal;
@@ -55,26 +90,6 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
             playerRenderer.SetDirection(movement);
             rbody.MovePosition(newPos);
-        }
-        else if (SkillManager.Instance.isDashing)
-        {
-            print("dash");
-
-            Dashtime -= Time.fixedDeltaTime;
-            print(Dashtime);
-            if (Dashtime >= 0f)
-            {
-                //rbody.AddForce(lastVector * 15f);
-                playerRenderer.SetDirection(lastVector);
-                rbody.MovePosition(currentPos + lastVector*0.1f);
-            }
-            else if (Dashtime <= 0f)
-            {
-                rbody.velocity = Vector2.zero;
-                Dashtime = 0.5f;
-                SkillManager.Instance.isDashing = false;
-            }
-
         }
     }
 
