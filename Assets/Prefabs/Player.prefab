@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   rbody: {fileID: 1466945808763970804}
+  lastVector: {x: 0, y: 0}
 --- !u!1 &1466945808862707578
 GameObject:
   m_ObjectHideFlags: 0
