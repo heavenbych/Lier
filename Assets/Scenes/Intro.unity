@@ -355,6 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e57c550bcfc444cb1ffa7c5ef3874e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDashing: 0
+  isAttacking: 0
 --- !u!1 &55167083
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +685,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104058728}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47289094}
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &104058728
 MonoBehaviour:
   m_ObjectHideFlags: 0
