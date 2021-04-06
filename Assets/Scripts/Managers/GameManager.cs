@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     
     private static GameManager _instance;
-
+    public int frame = 60;
     public GameStatus GameStatus { get { return GameStatus; } set { gameStatus = value; } }
 
     [SerializeField] private GameStatus gameStatus = GameStatus.Intro;
@@ -38,9 +38,9 @@ public class GameManager : MonoBehaviour
         gameStatus = GameStatus.Intro;
     }
 
-    private void Start()
+    private void Update()
     {
-
+        Application.targetFrameRate = frame;
 
     }
 }
