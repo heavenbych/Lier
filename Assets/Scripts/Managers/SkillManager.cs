@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Skill management Class
+/// </summary>
 public class SkillManager : MonoBehaviour
 {
     private static SkillManager _instance;
 
     private bool isDashOn;
+    [SerializeField]
     public bool isDashing;
     private static float DASHCOOLDOWN = 2f;
 
     private bool isAttackOn;
+    [SerializeField]
     public bool isAttacking;
+
     private static float ATTACKCOOLDOWN = 0.5f;
     public static SkillManager Instance
     {

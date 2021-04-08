@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Manager about Loading Scenes
+/// </summary>
 public class LoadManager : MonoBehaviour
 {
     private string _departure;

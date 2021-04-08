@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/// <summary>
+/// Overall Game's Running Status
+/// </summary>
 public enum GameStatus { Intro, Server, Character, Loading, InGame}
 
 public class GameManager : MonoBehaviour
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         gameStatus = GameStatus.Intro;
+        
     }
 
     private void Update()

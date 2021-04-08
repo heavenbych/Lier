@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
     [SerializeField] private Vector2 lastVector;
     float Dashtime = 0.5f;
-    float AttTime = 1f;
+    float AttTime = 0.45f;
 
     VariableJoystick variableJoystick;           //조이스틱 선언
     PlayerRender playerRenderer;
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
             }
             else if(AttTime <= 0f)
             {
-                AttTime = 0.5f;
+                AttTime = 0.45f;
                 SkillManager.Instance.isAttacking = false;
 
             }

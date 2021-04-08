@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// UI 관련 오브젝트들 매니저
+/// Manager about UI
 /// </summary>
 public class UIManager : MonoBehaviour
 {

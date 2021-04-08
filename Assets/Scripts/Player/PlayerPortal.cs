@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerStatus : MonoBehaviour       //플레이어와 포탈간 상호 작용 적용하는 스크립트
+public class PlayerPortal : MonoBehaviour       //플레이어와 포탈간 상호 작용 적용하는 스크립트
 {
     private bool isStage1Done = false;
     public bool check = false;

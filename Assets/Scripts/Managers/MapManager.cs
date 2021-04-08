@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Manager about Map Status
+/// Ex) Village, Dungeon...
+/// </summary>
 public enum MapStatus { None, Village, Dungeon };
 public class MapManager : MonoBehaviour
 {

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+/// <summary>
+/// Manager about Dungeon's Stage Status
+/// Ex) Stage1, Bossroom, etc...
+/// </summary>
 public enum StageStatus { None, Room, Stage1, Stage2, Stage3, Stage4, Boss }
 public class StageManager : MonoBehaviour
 {
