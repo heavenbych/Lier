@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b431cc008ebf48abb03de0c140a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frame: 144
   gameStatus: 0
 --- !u!4 &47289088
 Transform:
