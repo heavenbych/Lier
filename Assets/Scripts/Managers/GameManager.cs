@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     
     private static GameManager _instance;
     public int frame = 60;
-    public GameStatus GameStatus { get { return GameStatus; } set { gameStatus = value; } }
+    public GameStatus GameStatus { get { return gameStatus; } set { gameStatus = value; } }
 
     [SerializeField] private GameStatus gameStatus = GameStatus.Intro;
 

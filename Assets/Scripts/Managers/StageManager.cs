@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
 {
     private static StageManager _instance;
 
-    public StageStatus StageStatus { get { return StageStatus; } set { stageStatus = value; } }
+    public StageStatus StageStatus { get { return stageStatus; } set { stageStatus = value; } }
 
     [SerializeField] private StageStatus stageStatus;
 

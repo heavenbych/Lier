@@ -41,11 +41,13 @@ public class PlayerRender : MonoBehaviour
             directionArray = runDirections;
             lastDirection = DirectionToIndex(direction, 8);
         }
-        if (SkillManager.Instance.isAttacking)
+
+
+        if (PlayerManager.Instance.PlayerStatus == PlayerStatus.Attack)
         {
             directionArray = attackDirections;
         }
-        if (SkillManager.Instance.isDashing)
+        if (PlayerManager.Instance.PlayerStatus == PlayerStatus.SubAct)
         {
             directionArray = dashDirections;
         }
