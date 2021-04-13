@@ -39,7 +39,7 @@ public class BaseMonster : BaseObject, IBaseMobAct
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
         print(gb.name);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(Random.Range(1f,2f));
         isRun = false;
     }
 }
