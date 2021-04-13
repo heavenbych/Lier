@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame: 144
-  gameStatus: 0
+  _gameStatus: 0
 --- !u!4 &47289088
 Transform:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f65b35dd6d0fa041a8d058b64b3b616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageStatus: 0
+  _stageStatus: 0
 --- !u!114 &47289092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f2d462250b2db46adf46696b3bcca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatus: 0
+  _playerStatus: 0
 --- !u!1 &55167083
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class IntroLoad : MonoBehaviour
             IsStart = true;
             UIManager.Instance.DisableAllUI();
             StartCoroutine(StartLoad("Char"));
-            GameManager.Instance.GameStatus = GameStatus.Character;
+            GameManager.Instance.gameStatus = GameStatus.Character;
         }
     }
     private void Update()

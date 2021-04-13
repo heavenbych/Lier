@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMobBase
+public interface IBaseMobAct
 {
-    
+    void Move();
 }

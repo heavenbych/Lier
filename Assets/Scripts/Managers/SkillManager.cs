@@ -49,12 +49,12 @@ public class SkillManager : MonoBehaviour
     public void Attack()
     {
         if(isAttackOn&&
-            PlayerManager.Instance.PlayerStatus==PlayerStatus.Idle)
+            PlayerManager.Instance.playerStatus==PlayerStatus.Idle)
         {
             isAttackOn = false;
             isAttacking = true;
 
-            PlayerManager.Instance.PlayerStatus = PlayerStatus.Attack;
+            PlayerManager.Instance.playerStatus = PlayerStatus.Attack;
             Invoke("AttackCooldown", ATTACKCOOLDOWN);
         } else
         {
@@ -70,7 +70,7 @@ public class SkillManager : MonoBehaviour
         if(isDashOn)
         {
             isDashOn = false;
-            PlayerManager.Instance.PlayerStatus = PlayerStatus.SubAct;
+            PlayerManager.Instance.playerStatus = PlayerStatus.SubAct;
             Invoke("DashCooldown", DASHCOOLDOWN);
         } else
         {

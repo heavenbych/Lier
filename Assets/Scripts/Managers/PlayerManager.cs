@@ -14,21 +14,11 @@ public class PlayerManager : MonoBehaviour
     private static PlayerManager _instance;
 
 
-    private int hp;
-    private int mp;
-    private int stamina;
-    private int level;
+    
 
-    private int strenth;        //힘 - 물리 대미지
-    private int attention;      //집중력 - 명중률/회피율
-    private int intelligence;   //지능 - 마법?
-    private int insight;        //통찰력 - 약점 분석
-    private int potential;      //잠재력 - 최소/최대 대미지 격차
-    private int luck;           //행운 -
+    public PlayerStatus playerStatus { get { return _playerStatus; } set { _playerStatus = value; } }
 
-    public PlayerStatus PlayerStatus { get { return playerStatus; } set { playerStatus = value; } }
-
-    [SerializeField] private PlayerStatus playerStatus = PlayerStatus.Idle;
+    [SerializeField] private PlayerStatus _playerStatus = PlayerStatus.Idle;
     public static PlayerManager Instance
     {
         get
@@ -50,7 +40,7 @@ public class PlayerManager : MonoBehaviour
         else if (_instance != this)
             Destroy(gameObject);
 
-        PlayerStatus = PlayerStatus.Idle;
+        playerStatus = PlayerStatus.Idle;
     }
     
 

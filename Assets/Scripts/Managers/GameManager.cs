@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     
     private static GameManager _instance;
     public int frame = 60;
-    public GameStatus GameStatus { get { return gameStatus; } set { gameStatus = value; } }
+    public GameStatus gameStatus { get { return _gameStatus; } set { _gameStatus = value; } }
 
-    [SerializeField] private GameStatus gameStatus = GameStatus.Intro;
+    [SerializeField] private GameStatus _gameStatus = GameStatus.Intro;
 
 
     public static GameManager Instance
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         else if (_instance != this)
             Destroy(gameObject);
 
-        gameStatus = GameStatus.Intro;
+        _gameStatus = GameStatus.Intro;
         
     }
 

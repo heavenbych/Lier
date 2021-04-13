@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
         
 
 
-        if (PlayerManager.Instance.PlayerStatus.Equals(PlayerStatus.SubAct))
+        if (PlayerManager.Instance.playerStatus.Equals(PlayerStatus.SubAct))
         {
             Dashtime -= Time.fixedDeltaTime;
             if (Dashtime >= 0f)
@@ -45,11 +45,11 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
             {
                 rbody.velocity = Vector2.zero;
                 Dashtime = 0.5f;
-                PlayerManager.Instance.PlayerStatus = PlayerStatus.Idle;
+                PlayerManager.Instance.playerStatus = PlayerStatus.Idle;
             }
             
         }
-        else if (PlayerManager.Instance.PlayerStatus.Equals(PlayerStatus.Attack))
+        else if (PlayerManager.Instance.playerStatus.Equals(PlayerStatus.Attack))
         {
             AttTime -= Time.fixedDeltaTime;
             if(AttTime >= 0f)
@@ -59,12 +59,12 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
             else if(AttTime <= 0f)
             {
                 AttTime = 0.45f;
-                PlayerManager.Instance.PlayerStatus = PlayerStatus.Idle;
+                PlayerManager.Instance.playerStatus = PlayerStatus.Idle;
 
             }
             
         }
-        else if(!PlayerManager.Instance.PlayerStatus.Equals(PlayerStatus.SubAct))
+        else if(!PlayerManager.Instance.playerStatus.Equals(PlayerStatus.SubAct))
         {
             //이하 아래 두 줄은 바로 이동하는게 아닌 AddForce를 사용해 이동
             //Vector2 direction = Vector2.up * variableJoystick.Vertical + Vector2.right * variableJoystick.Horizontal;

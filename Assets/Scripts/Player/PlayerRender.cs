@@ -43,11 +43,11 @@ public class PlayerRender : MonoBehaviour
         }
 
 
-        if (PlayerManager.Instance.PlayerStatus == PlayerStatus.Attack)
+        if (PlayerManager.Instance.playerStatus == PlayerStatus.Attack)
         {
             directionArray = attackDirections;
         }
-        if (PlayerManager.Instance.PlayerStatus == PlayerStatus.SubAct)
+        if (PlayerManager.Instance.playerStatus == PlayerStatus.SubAct)
         {
             directionArray = dashDirections;
         }

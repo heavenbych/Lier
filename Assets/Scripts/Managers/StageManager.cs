@@ -13,9 +13,9 @@ public class StageManager : MonoBehaviour
 {
     private static StageManager _instance;
 
-    public StageStatus StageStatus { get { return stageStatus; } set { stageStatus = value; } }
+    public StageStatus stageStatus { get { return _stageStatus; } set { _stageStatus = value; } }
 
-    [SerializeField] private StageStatus stageStatus;
+    [SerializeField] private StageStatus _stageStatus;
 
     public static StageManager Instance
     {
@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
         else if (_instance != this)
             Destroy(gameObject);
 
-        StageStatus = StageStatus.None;
+        stageStatus = StageStatus.None;
     }
 
     private void Update()
