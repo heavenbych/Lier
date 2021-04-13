@@ -56,3 +56,9 @@ TagManager:
   - name: Collider
     uniqueID: 2987820629
     locked: 0
+  - name: Background
+    uniqueID: 1048077209
+    locked: 0
+  - name: Foreground
+    uniqueID: 236364457
+    locked: 0

@@ -10,6 +10,7 @@ public class BaseMonster : BaseObject, IBaseMobAct
     public bool isRun;
     public Rigidbody2D rbody;
     public GameObject gb;
+    public float speed = 0.1f;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class BaseMonster : BaseObject, IBaseMobAct
 
         }
         currentPos = rbody.position;
-        newPos = currentPos + movement * Time.fixedDeltaTime;
+        newPos = currentPos + movement * Time.fixedDeltaTime * speed;
         rbody.MovePosition(newPos);
         Move();
     }
@@ -36,7 +37,7 @@ public class BaseMonster : BaseObject, IBaseMobAct
     }
     IEnumerator setVector()
     {
-        movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
         print(gb.name);
         yield return new WaitForSeconds(Random.Range(1f,2f));
