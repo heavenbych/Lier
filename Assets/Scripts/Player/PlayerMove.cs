@@ -9,8 +9,8 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
     public Rigidbody2D rbody;
 
     [SerializeField] private Vector2 lastVector;
-    float Dashtime = 0.5f;
-    float AttTime = 0.45f;
+    float dashTime = 0.5f;
+    float attTime = 0.45f;
 
     VariableJoystick variableJoystick;           //조이스틱 선언
     PlayerRender playerRenderer;
@@ -34,31 +34,31 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
         if (PlayerManager.Instance.playerStatus.Equals(PlayerStatus.SubAct))
         {
-            Dashtime -= Time.fixedDeltaTime;
-            if (Dashtime >= 0f)
+            dashTime -= Time.fixedDeltaTime;
+            if (dashTime >= 0f)
             {
                 //rbody.AddForce(lastVector * 15f);
                 playerRenderer.SetDirection(lastVector);
                 rbody.MovePosition(currentPos + lastVector*0.1f);
             }
-            else if (Dashtime <= 0f)
+            else if (dashTime <= 0f)
             {
                 rbody.velocity = Vector2.zero;
-                Dashtime = 0.5f;
+                dashTime = 0.5f;
                 PlayerManager.Instance.playerStatus = PlayerStatus.Idle;
             }
             
         }
         else if (PlayerManager.Instance.playerStatus.Equals(PlayerStatus.Attack))
         {
-            AttTime -= Time.fixedDeltaTime;
-            if(AttTime >= 0f)
+            attTime -= Time.fixedDeltaTime;
+            if(attTime >= 0f)
             {
                 playerRenderer.SetDirection(lastVector);
             }
-            else if(AttTime <= 0f)
+            else if(attTime <= 0f)
             {
-                AttTime = 0.45f;
+                attTime = 0.45f;
                 PlayerManager.Instance.playerStatus = PlayerStatus.Idle;
 
             }
@@ -96,8 +96,8 @@ public class PlayerMove : MonoBehaviour         //플레이어 이동 벡터 설
 
     private IEnumerator DashMove()
     {
-        float Dashtime = 0.5f;
-        print(Dashtime);
+        float dashTime = 0.5f;
+        print(dashTime);
         print(Time.fixedDeltaTime);
         while(true)
         {

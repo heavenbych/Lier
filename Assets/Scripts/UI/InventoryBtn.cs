@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 public class InventoryBtn : MonoBehaviour
 {
-    public GameObject MainInventory;
+    public GameObject mainInventory;
 
     public GameObject[] Btn_Menu = new GameObject[INVTAPMOUNT];
     public GameObject[] Cvs_Menu = new GameObject[INVTAPMOUNT];
 
-    const int INVTAPMOUNT = 4;
+    const int INVTAPMOUNT = 4;      //Amount of Inventory Taps
 
     private void Awake()
     {
@@ -53,10 +53,10 @@ public class InventoryBtn : MonoBehaviour
     
     public void InventoryAppear()
     {
-        if (!MainInventory.activeSelf)
+        if (!mainInventory.activeSelf)
         {
 
-            MainInventory.SetActive(true);
+            mainInventory.SetActive(true);
             UIManager.Instance.DisableAllUI();
             UIManager.Instance.Joystick.GetComponent<VariableJoystick>().resetController();
 
@@ -66,9 +66,9 @@ public class InventoryBtn : MonoBehaviour
 
     public void InventoryDisappear()
     {
-        if (MainInventory.activeSelf)
+        if (mainInventory.activeSelf)
         {
-            MainInventory.SetActive(false);
+            mainInventory.SetActive(false);
             UIManager.Instance.PeaceOn();
 
             Inv_Reset();

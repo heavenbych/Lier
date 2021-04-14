@@ -12,7 +12,7 @@ public class SkillManager : MonoBehaviour
     private bool isDashOn;
     [SerializeField]
     public bool isDashing;
-    private static float DASHCOOLDOWN = 2f;
+    private static float DASHCOOLDOWN = 2f;     //Dash Skill's Cooldown
 
     private bool isAttackOn;
     [SerializeField]

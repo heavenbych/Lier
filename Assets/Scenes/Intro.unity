@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398f82d2ef48b5245a66279b15f28741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainInventory: {fileID: 1280511802}
+  mainInventory: {fileID: 1280511802}
   Btn_Menu:
   - {fileID: 1177968705}
   - {fileID: 464305119}
