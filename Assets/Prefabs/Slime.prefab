@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3724764812440801022}
   - component: {fileID: 3452381306924074187}
   - component: {fileID: 4147522004646571985}
-  - component: {fileID: 2050722543708987110}
+  - component: {fileID: 6339807609502191548}
   m_Layer: 10
   m_Name: Slime
   m_TagString: Untagged
@@ -203,7 +203,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2050722543708987110
+--- !u!114 &6339807609502191548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,12 +212,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3724764812440801009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f955a8e574eef4fb5e26f0d332af89, type: 3}
+  m_Script: {fileID: 11500000, guid: 4896846887729f0449e580809dd63cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 0
-  movement: {x: 0, y: 0}
-  isRun: 0
-  rbody: {fileID: 3724764812440801022}
+  _objectType: 0
+  stats:
+    current_hp: 0
+    current_mp: 0
+    current_stamina: 0
+    level: 0
+    exp: 0
+    strenth: 0
+    attention: 0
+    intelligence: 0
+    insight: 0
+    potential: 0
+    luck: 0
   gb: {fileID: 3724764812440801009}
-  speed: 0.1
+  cd: {fileID: 3724764812343051337}
+  currentPos: {x: 0, y: 0}
+  movement: {x: 0, y: 0}
+  newPos: {x: 0, y: 0}
+  speed: 0.5

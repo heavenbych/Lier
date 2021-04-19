@@ -9,7 +9,7 @@ public enum PlayerStatus { Idle, Move, Pet_Idle, Pet_Move, Attack, Skill, SubAct
 /// <summary>
 /// In-Game character Manager
 /// </summary>
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : BaseCharacter
 {
     private static PlayerManager _instance;
 

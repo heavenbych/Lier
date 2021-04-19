@@ -2,45 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMonster : BaseObject, IBaseMobAct
+/// <summary>
+/// Monster's Base Class
+/// </summary>
+public abstract class BaseMonster : BaseObject, IBaseMobAct
 {
-    Vector2 currentPos;
-    public Vector2 movement;
-    Vector2 newPos;
-    public bool isRun;
-    public Rigidbody2D rbody;
-    public GameObject gb;
-    public float speed = 0.1f;
+    public enum MonsterType { Normal, Elite, Boss }
 
-    private void Awake()
+    protected Rigidbody2D rbody;
+
+
+    [SerializeField] protected Vector2 currentPos;
+    [SerializeField] protected Vector2 movement;
+    [SerializeField] protected Vector2 newPos;
+
+    protected bool isDirChanged;       //Check Direction changed
+    [SerializeField] protected float speed = 0.5f;      //Monster Movement Speed
+
+
+
+    
+    public void Reset()
     {
-        rbody = GetComponent<Rigidbody2D>();
-
-        isRun = false;
+        gb.transform.position = Vector2.zero;
     }
-    private void FixedUpdate()
+    public void Move()              //Make Mob Move
     {
-        if (!isRun)
+        if (!isDirChanged)
         {
-            isRun = true;
-            StartCoroutine("setVector");
-
+            isDirChanged = true;
+            StartCoroutine("ISetMobVector");
         }
         currentPos = rbody.position;
         newPos = currentPos + movement * Time.fixedDeltaTime * speed;
         rbody.MovePosition(newPos);
-        Move();
     }
-    public void Move()
-    {
-        
-    }
-    IEnumerator setVector()
+    IEnumerator ISetMobVector()     //Set Mob's Vector random
     {
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
-        print(gb.name);
         yield return new WaitForSeconds(Random.Range(1f,2f));
-        isRun = false;
+        isDirChanged = false;
     }
 }

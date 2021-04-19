@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBaseMobAct
+public class BaseCharacter : BaseObject
 {
-    void Move();
-    void Reset();
+    
 }

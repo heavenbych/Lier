@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Monster, Player's Base Info
+/// </summary>
 public abstract class BaseObject : MonoBehaviour, IBaseInteract
 {
-    protected enum ObjectType { None, Player, Monster, NPC, Deco };
-    protected struct Stats
+    public enum ObjectType { None, Character, Monster, NPC, Feature };
+
+    public ObjectType objectType { get { return _objectType; } set { _objectType = value; } }
+    [SerializeField] private ObjectType _objectType = ObjectType.None;
+
+
+    [System.Serializable] protected struct Stats
     {
         public int current_hp;             //생명력
         public int current_mp;             //마나
@@ -20,29 +27,22 @@ public abstract class BaseObject : MonoBehaviour, IBaseInteract
         public int insight;        //통찰력 - 약점 분석
         public int potential;      //잠재력 - 최소/최대 대미지 격차
         public int luck;           //행운 -
-    };
-    protected struct Coord
-    {
-        public float x;
-        public float y;
-        public float z;
+    };      //Object Base Stats
 
-        public Coord(float _x, float _y, float _z)
-        {
-            x = _x;
-            y = _y;
-            z = _z;
-        }
+
+    [SerializeField] protected Stats stats;
+    [SerializeField] protected GameObject gb;
+    [SerializeField] protected Collider2D cd;
+
+    //Give damage to others
+    public void Damage(BaseObject target, int damage)
+    {
+        target.Damaged(damage);
     }
 
-    [SerializeField]
-    protected ObjectType objectType;
-    protected Stats stats;
-    protected Coord coord;
-
-    protected void reset_Base()
+    //Get damage by others
+    public void Damaged(int damage)
     {
-        objectType = ObjectType.None;
+        this.stats.current_hp -= damage;
     }
-
 }
