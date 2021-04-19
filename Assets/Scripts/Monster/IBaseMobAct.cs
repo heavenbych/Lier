@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IBaseMobAct
 {
     void Move();
-    void Reset();
+    void ResetPos();
 }

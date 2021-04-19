@@ -11,12 +11,14 @@ public class Slime : BaseMonster
         isDirChanged = false;
 
         this.objectType = ObjectType.Monster;
+        SlimeReset();
     }
 
     private void FixedUpdate()
     {
-        
-        
+
+        if (this.stats.current_hp <= 0)
+            this.gameObject.SetActive(false);
         Move();
     }
     private void OnTriggerEnter(Collider other)
@@ -38,7 +40,7 @@ public class Slime : BaseMonster
     }
     private void OnDisable()
     {
-        Reset();
+        ResetPos();
         SlimeReset();
         StopAllCoroutines();
     }

@@ -22,7 +22,7 @@ public abstract class BaseMonster : BaseObject, IBaseMobAct
 
 
     
-    public void Reset()
+    public void ResetPos()
     {
         gb.transform.position = Vector2.zero;
     }

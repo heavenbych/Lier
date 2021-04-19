@@ -71,7 +71,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.08261183, y: -0.00652194}
@@ -230,7 +230,8 @@ MonoBehaviour:
     luck: 0
   gb: {fileID: 3724764812440801009}
   cd: {fileID: 3724764812343051337}
+  rbody: {fileID: 3724764812440801022}
   currentPos: {x: 0, y: 0}
   movement: {x: 0, y: 0}
   newPos: {x: 0, y: 0}
-  speed: 0.5
+  speed: 0.2

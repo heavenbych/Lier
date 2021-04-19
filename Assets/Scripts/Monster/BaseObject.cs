@@ -33,6 +33,7 @@ public abstract class BaseObject : MonoBehaviour, IBaseInteract
     [SerializeField] protected Stats stats;
     [SerializeField] protected GameObject gb;
     [SerializeField] protected Collider2D cd;
+    [SerializeField] protected Rigidbody2D rbody;
 
     //Give damage to others
     public void Damage(BaseObject target, int damage)
@@ -44,5 +45,10 @@ public abstract class BaseObject : MonoBehaviour, IBaseInteract
     public void Damaged(int damage)
     {
         this.stats.current_hp -= damage;
+    }
+
+    public void Knockback()
+    {
+        rbody.AddForce(new Vector2(100,100));
     }
 }
