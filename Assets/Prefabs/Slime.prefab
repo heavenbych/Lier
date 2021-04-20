@@ -228,9 +228,11 @@ MonoBehaviour:
     insight: 0
     potential: 0
     luck: 0
-  gb: {fileID: 3724764812440801009}
-  cd: {fileID: 3724764812343051337}
-  rbody: {fileID: 3724764812440801022}
+  baseGameObject: {fileID: 3724764812440801009}
+  baseCol: {fileID: 3724764812343051337}
+  baseRbody: {fileID: 3724764812440801022}
+  _monsterType: 0
+  _monsterStatus: 0
   currentPos: {x: 0, y: 0}
   movement: {x: 0, y: 0}
   newPos: {x: 0, y: 0}

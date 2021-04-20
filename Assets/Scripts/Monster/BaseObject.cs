@@ -8,7 +8,6 @@ using UnityEngine;
 public abstract class BaseObject : MonoBehaviour, IBaseInteract
 {
     public enum ObjectType { None, Character, Monster, NPC, Feature };
-
     public ObjectType objectType { get { return _objectType; } set { _objectType = value; } }
     [SerializeField] private ObjectType _objectType = ObjectType.None;
 
@@ -31,9 +30,9 @@ public abstract class BaseObject : MonoBehaviour, IBaseInteract
 
 
     [SerializeField] protected Stats stats;
-    [SerializeField] protected GameObject gb;
-    [SerializeField] protected Collider2D cd;
-    [SerializeField] protected Rigidbody2D rbody;
+    [SerializeField] protected GameObject baseGameObject;
+    [SerializeField] protected Collider2D baseCol;
+    [SerializeField] protected Rigidbody2D baseRbody;
 
     //Give damage to others
     public void Damage(BaseObject target, int damage)
@@ -49,6 +48,6 @@ public abstract class BaseObject : MonoBehaviour, IBaseInteract
 
     public void Knockback()
     {
-        rbody.AddForce(new Vector2(100,100));
+        baseRbody.AddForce(new Vector2(100,100));
     }
 }

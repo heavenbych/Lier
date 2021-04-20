@@ -6,7 +6,7 @@ public class Slime : BaseMonster
 {
     private void Awake()
     {
-        rbody = GetComponent<Rigidbody2D>();
+        baseRbody = GetComponent<Rigidbody2D>();
 
         isDirChanged = false;
 
@@ -18,20 +18,16 @@ public class Slime : BaseMonster
     {
 
         if (this.stats.current_hp <= 0)
-            this.gameObject.SetActive(false);
+            this.baseGameObject.SetActive(false);
         Move();
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        
-    }
+    
 
 
     private void OnEnable()
     {
         print("Enabled");
-        rbody = GetComponent<Rigidbody2D>();
+        baseRbody = GetComponent<Rigidbody2D>();
 
         isDirChanged = false;
 

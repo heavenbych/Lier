@@ -7,9 +7,19 @@ using UnityEngine;
 /// </summary>
 public abstract class BaseMonster : BaseObject, IBaseMobAct
 {
+    
     public enum MonsterType { Normal, Elite, Boss }
+    public MonsterType monsterType { get { return _monsterType; } set { _monsterType = value; } }
+    [SerializeField] private MonsterType _monsterType;
 
-    protected Rigidbody2D rbody;
+
+    public enum MonsterStatus { Idle, Move, Attack, Hit }
+    public MonsterStatus monsterStatus { get { return _monsterStatus; } set { _monsterStatus = value; } }
+    [SerializeField] private MonsterStatus _monsterStatus = MonsterStatus.Idle;
+
+
+
+
 
 
     [SerializeField] protected Vector2 currentPos;
@@ -24,7 +34,7 @@ public abstract class BaseMonster : BaseObject, IBaseMobAct
     
     public void ResetPos()
     {
-        gb.transform.position = Vector2.zero;
+        baseGameObject.transform.position = Vector2.zero;
     }
     public void Move()              //Make Mob Move
     {
@@ -33,9 +43,9 @@ public abstract class BaseMonster : BaseObject, IBaseMobAct
             isDirChanged = true;
             StartCoroutine("ISetMobVector");
         }
-        currentPos = rbody.position;
+        currentPos = baseRbody.position;
         newPos = currentPos + movement * Time.fixedDeltaTime * speed;
-        rbody.MovePosition(newPos);
+        baseRbody.MovePosition(newPos);
     }
     IEnumerator ISetMobVector()     //Set Mob's Vector random
     {
