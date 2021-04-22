@@ -26,7 +26,7 @@ public abstract class BaseMonster : BaseObject, IBaseMobAct
     [SerializeField] protected Vector2 movement;
     [SerializeField] protected Vector2 newPos;
 
-    protected bool isDirChanged;       //Check Direction changed
+    protected bool isDirChanged;                        //Check Direction changed
     [SerializeField] protected float speed = 0.5f;      //Monster Movement Speed
 
 
